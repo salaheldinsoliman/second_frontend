@@ -22,6 +22,9 @@
     <p>{{ loan.amount }}</p>
 
   </div>
+
+
+
 </div>
 </template>
 
@@ -35,10 +38,14 @@
 import axios from 'axios'
 import HelloWorld from '@/components/HelloWorld.vue'
 
+
 export default {
   name: 'Home',
   data(){
-    return{all_loans:[]}
+    return{
+      all_loans:[], 
+     
+      }
   },
   components: {
  

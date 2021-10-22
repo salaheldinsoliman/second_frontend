@@ -12,7 +12,7 @@
     <div class="navbar-menu" id="navbar-menu" v-bind:class="{'is-active': showMobileMenu}">
         <div class="navbar-end">
             <router-link to="/get_loan" class="navbar-item">Get a loan</router-link>
-            <router-link to="/loan_fund" class="navbar-item">Loan a fund</router-link>
+            <router-link to="/submit_loan" class="navbar-item">Loan a fund</router-link>
 
 
         </div>
@@ -21,10 +21,11 @@
 
     <div class="navbar-item">
         <div class="butttons">
-            <router-link to="/login" class="button is-light">
+            <router-link to="/log-in" class="button is-light">
+        
             <span class="icon"><i class="fas fa-shopping-cart"></i></span> Log in
             </router-link>
-            <router-link to="/signup" class="button is-success">Sign up</router-link>
+            <router-link to="/sign-up" class="button is-success">Sign up</router-link>
 
         </div>
 
@@ -44,17 +45,28 @@
 </template>
 
 <script>
+import axios from 'axios'
+
+
 
 
 export default{
     data(){
         return {
-            showMobileMenu: false
+            showMobileMenu: false,
+            //my_state: this.$store.state.isAuthenticated
         }
+    },
+    beforeCreate(){
+        this.$store.commit('initializeStore')
 
+        const token = this.$store.state.token
 
-
-
+        if (token){
+            axios.defaults.headers.common['Authorization'] = 'Token' + token
+        } else {
+            axios.defaults.headers.common['Authorization'] = ""
+        }
     }
 
 }
