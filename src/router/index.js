@@ -4,7 +4,7 @@ import SignUp from '../views/SignUp.vue'
 import LogIn from '../views/LogIn.vue'
 import get_loan from '../components/get_loan'
 import submit_loan from '../components/submit_loan'
-
+import pay_installment from '../components/pay_installment'
 
 const routes = [
   {
@@ -31,6 +31,11 @@ const routes = [
     path: '/submit_loan',
     name: 'submit_loan',
     component: submit_loan
+  },
+  {
+    path: '/pay_installment',
+    name: 'pay_installment',
+    component: pay_installment
   },
   {
     path: '/about',

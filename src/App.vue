@@ -13,6 +13,7 @@
         <div class="navbar-end">
             <router-link to="/get_loan" class="navbar-item">Get a loan</router-link>
             <router-link to="/submit_loan" class="navbar-item">Loan a fund</router-link>
+            <router-link to="/pay_installment" class="navbar-item">Pay installment</router-link>
 
 
         </div>
@@ -54,7 +55,7 @@ export default{
     data(){
         return {
             showMobileMenu: false,
-            //my_state: this.$store.state.isAuthenticated
+            my_state: this.$store.state.isAuthenticated
         }
     },
     beforeCreate(){
