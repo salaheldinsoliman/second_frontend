@@ -1,9 +1,9 @@
 <template>
     <div>
-        <h1>Get a loan</h1>
+        <h1>Pay installment</h1>
         <form @submit="postData" method="post">
             <input type="text" name="amount" placeholder="amount" v-model="posts.amount" />
-            
+            <input type="text" name="to_user" placeholder="The lender name" v-model="posts.to_user" />
             <button type="submit">Submit</button>
 
         </form>
@@ -35,33 +35,29 @@ import VueAxios from 'vue-axios'
 
 
 export default {
-    name: "get_loan",
+    name: "pay_installment",
     data() {
         return {
             posts: {
                 amount: null,
-                is_taken:0
+                to_user: null
+            }
 
-            },
-            loans : [],
+
           
         }
 
     },
     methods: {
-        postData(e){
-            axios.post("http://localhost:8000/api/v1/loan_create/", this.posts)
+                postData(e){
+            axios.post("http://localhost:8000/api/v1/ledger_create/", this.posts)
             .then((res) => {
                 console.warn(res)
             })
             e.preventDefault();
            
         },
-        getData(){
-            axios.get("http://localhost:8000/api/v1/all_loans/").then(res => {
-                this.loans = res.data
-            })
-        },
+
 
     }
 }
