@@ -15,6 +15,7 @@
             <router-link to="/submit_loan" class="navbar-item">Loan a fund</router-link>
             <router-link to="/pay_installment" class="navbar-item">Pay installment</router-link>
 
+            <router-link to="/amortization_table" class="navbar-item">Amortization Table</router-link>
 
         </div>
 
