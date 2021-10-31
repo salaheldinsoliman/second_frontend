@@ -6,6 +6,10 @@ import get_loan from '../components/get_loan'
 import submit_loan from '../components/submit_loan'
 import pay_installment from '../components/pay_installment'
 import amortization_table from '../components/amortization_table'
+import ledger from '../components/ledger'
+
+
+
 const routes = [
   {
     path: '/',
@@ -41,6 +45,11 @@ const routes = [
     path: '/amortization_table',
     name: 'amortization_table',
     component: amortization_table
+  },
+  {
+    path: '/ledger',
+    name: 'ledger',
+    component: ledger
   },
   {
     path: '/about',

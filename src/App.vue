@@ -16,6 +16,7 @@
             <router-link to="/pay_installment" class="navbar-item">Pay installment</router-link>
 
             <router-link to="/amortization_table" class="navbar-item">Amortization Table</router-link>
+            <router-link to="/ledger" class="navbar-item">Ledger</router-link>
 
         </div>
 
