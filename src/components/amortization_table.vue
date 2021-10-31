@@ -1,16 +1,31 @@
 <template>
     <div>
-        <h1 class="title has-text-centered">Get a loan</h1>
-        <div class="container">
-        <form @submit="postData" method="post">
-            <div class="control">
-            <input class="input" type="text" name="amount" placeholder="amount" v-model="posts.amount" />
-            </div>
-            <button class="button is-link mt-4 is-fullwidth" type="submit">Submit</button>
+        <h1 class="title has-text-centered">Get Amortization Table</h1>
+    <div>
+        <button class="button is-link mb-4" v-on:click="getData">Get Amortization Table</button>
+    </div>
 
-        </form>
-        </div>
+<div class="table-container">
+<table class="table is-bordered is-hoverable is-fullwidth is-striped dark">
+    <thead>
+  <tr>
+    <th>Principal</th>
+    <th>Interest</th>
+    <th>Installment</th>
+    <th>Balance</th>
+  </tr>
+  </thead>
+  
+  <tr v-for="(loan, index) in loans['data']" v-bind:key="index" >
+  
+    <th v-for="(loan_element, i) in loan" v-bind:key="i">
+        {{ loan_element }}
+    </th>
+</tr>
+  
 
+</table>
+</div>
     </div>
 </template>
 

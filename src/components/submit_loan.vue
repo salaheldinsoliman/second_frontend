@@ -1,19 +1,16 @@
 <template>
     <div>
-        <h1>Post</h1>
+        <h1 class="title has-text-centered">Loan a Fund</h1>
+        <div class="container">
         <form @submit="postData" method="post">
-            <input type="text" name="amount" placeholder="amount" v-model="posts.amount" />
-            
-            <button type="submit">Post</button>
+            <div class="control">
+             <input class="input" type="text" name="amount" placeholder="amount" v-model="posts.amount" />
+            </div>
+            <button class="button is-link mt-4 is-fullwidth" type="submit">Post</button>
 
         </form>
-    
-    <div>
-        <button @submit="getData">Get loans</button>
-        <div v-for="loan in loans" :key="loan.amount">
-            {{ loan.amount }}
-        </div>
     </div>
+
     </div>
 </template>
 
