@@ -24,9 +24,9 @@
       
     </div>
 
-      <div v-for="am_table_row in am_table" v-bind:key="am_table_row.id" >
+  <div v-for="loan in loans" v-bind:key="loan.id" >
 
-    <p>{{ am_table_row.Principal }}</p>
+    <p>{{ loan[0] }}</p>
 
   </div>
 
