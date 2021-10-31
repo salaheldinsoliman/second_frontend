@@ -2,9 +2,11 @@
     <div>
         <h1>Get a loan</h1>
         <form @submit="postData" method="post">
-            <input type="text" name="amount" placeholder="amount" v-model="posts.amount" />
-            
-            <button type="submit">Submit</button>
+            <label class="label">Amount</label>
+            <div class="control">
+            <input class="input" type="text" name="amount" placeholder="amount" v-model="posts.amount" />
+            </div>
+            <button class="button is-link is-light" type="submit">Submit</button>
 
         </form>
     
@@ -24,12 +26,27 @@
       
     </div>
 
-  <div v-for="loan in loans" v-bind:key="loan.id" >
 
-    <p>{{ loan[0] }}</p>
+<table class="table">
+    <thead>
+  <tr>
+    <th colspan="10">Principal</th>
+    <th colspan="10">Interest</th>
+    <th colspan="10">Installment</th>
+    <th colspan="10">Balance</th>
+  </tr>
+  </thead>
+  <tr colspan="10">
+  <div v-for="(loan, index) in loans['data']" v-bind:key="index" >
+    <th colspan="10">
+    <div v-for="(loan_element, i) in loan" v-bind:key="i">
+    <p>{{ loan_element }}</p>
+</div>
+  </th>
 
   </div>
-
+</tr>  
+</table>
     </div>
 </template>
 
@@ -74,7 +91,8 @@ export default {
         },
         getData(){
             axios.get("http://localhost:8000/api/v1/all_loans/").then(res => {
-                this.loans = res.data
+                this.loans = res.data;
+                this.loans = JSON.parse(this.loans)
             })
         },
         getNumber(){
