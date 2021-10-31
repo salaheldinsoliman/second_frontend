@@ -10,12 +10,25 @@
     
     <div>
         <button v-on:click="getData">Get loans</button>
-        <div v-for="loan in loans" :key="loan.amount">
-            {{ loan.amount }}
-        </div>
+      
     </div>
 
+    
+    <div>
+        <button v-on:click="getNumber">Get Number</button>
+      
+    </div>
 
+      <div>
+        <button v-on:click="getAmortizationTable">Get Amortization Table</button>
+      
+    </div>
+
+      <div v-for="am_table_row in am_table" v-bind:key="am_table_row.id" >
+
+    <p>{{ am_table_row.Principal }}</p>
+
+  </div>
 
     </div>
 </template>
@@ -44,6 +57,8 @@ export default {
 
             },
             loans : [],
+            number_list : [],
+            am_table: []
           
         }
 
@@ -62,6 +77,17 @@ export default {
                 this.loans = res.data
             })
         },
+        getNumber(){
+            axios.get("http://localhost:8000/api/v1/number_view/").then(res => {
+                this.number_list = res.data
+            })
+        },
+        getAmortizationTable(){
+            axios.get("http://localhost:8000/api/v1/Amortization_table/").then(res => {
+                this.am_table = res.data
+            })
+        },
+
 
     }
 }
